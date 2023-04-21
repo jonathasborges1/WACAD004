@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <meta name="description" content="Aula 2 - Atividade 2">
+   <meta name="keywords" content="HTML5, CSS3, JS, DOM">
+   <meta name="author" content="Jonathas Borges Cavalcante">
+
+   <title>T2</title>
+</head>
+<body>
+   <h1>
+      WEB ACADEMY
+   </h1>
+
+   <div id="container">
+      <div class="content">
+         Introdução ao DOM (document object model)
+      </div>
+   </div>
+
+   <script>
+      /* a) Crie um elemento <p> com texto de cor vermelho escrito “Hierarquia de Objetos”  */
+         
+         // Selecionar o elemento div content
+         const divContent = document.querySelector('.content');
+
+         // Criar um elemento <p> e atribuir seu conteúdo
+         const newParagraph = document.createElement('p');
+         newParagraph.textContent = 'Hierarquia de Objetos';
+
+         // Definir a cor vermelha para o texto
+         newParagraph.style.color = 'red';
+
+         // Adicionar o elemento <p> à div content
+         divContent.appendChild(newParagraph);
+      //
+// ------------------------------------------------------------------------------------------------------------ //
+
+   /* b) Crie um elemento <h3> com texto de cor azul escrito “Windows Object”  */
+      // Obter o elemento <div> com a classe "content"
+         const divContentQB = document.querySelector('.content');
+
+      // Criar um elemento <h3>
+         const h3Element = document.createElement('h3');
+
+      // Adicionar o texto "Windows Object" ao elemento <h3>
+         h3Element.textContent = "Windows Object";
+
+      // Definir a cor azul para o texto
+         h3Element.style.color = "blue";
+
+      // Adicionar o elemento <h3> à <div> com a classe "content"
+         divContentQB.appendChild(h3Element);
+   //   
+// ------------------------------------------------------------------------------------------------------------ //  
+
+   /* C) Crie uma <div> com borda 2px, solid, black e background: pink. Além disso, adicione os seguintes filhos: 
+            Elemento <h1> que contém “Título da DIV”;
+            Elemento <p> que contém “Parágrafo da DIV”;
+   */
+
+      // Criar a <div> e definir suas propriedades de estilo
+      const div = document.createElement('div');
+      div.style.border = '2px solid black';
+      div.style.background = 'pink';
+
+      // Criar o <h1> e definir seu conteúdo
+      const h1 = document.createElement('h1');
+      h1.textContent = 'Título da DIV';
+
+      // Criar o <p> e definir seu conteúdo
+      const p = document.createElement('p');
+      p.textContent = 'Parágrafo da DIV';
+
+      // Adicionar os elementos filhos à <div>
+      div.appendChild(h1);
+      div.appendChild(p);
+
+      // Adicionar a <div> ao corpo do documento
+      document.body.appendChild(div);
+
+   //
+// ------------------------------------------------------------------------------------------------------------ // 
+   </script>
+
+</body>
+</html>

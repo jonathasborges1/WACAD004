@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="description" content="Aula 1 - Atividade 5" />
+		<meta name="keywords" content="HTML, CSS, JS, DOM" />
+		<meta name="author" content="Jonathas Borges Cavalcante" />
+
+		<title>T5</title>
+	</head>
+	<body>
+		<h1>Sobre Mim</h1>
+		<ul>
+			<li>Nome Completo: <span id="fullname"></span></li>
+			<li>Idade: <span id="age"></span></li>
+			<li>Cidade Natal: <span id="hometown"></span></li>
+		</ul>
+
+      <script>
+         // item a) Mude o estilo CSSfont-familydo elemento <body> para “Arial”
+         const bodyElement = document.getElementsByTagName("body");
+         bodyElement[0].style.setProperty("font-family", "Arial");
+
+         // item b) Troque cada um dos elementos <span> por informações fictícias
+         const arrayNamesDiferents = ["Jhon","29","manaus"]
+         const spanElements = document.getElementsByTagName("span");
+         Array.from(spanElements).forEach( (spanElement,index) => {
+            spanElement.textContent = arrayNamesDiferents[index];
+         });
+
+         // item c) Adicione uma tag <style>.listItem {color: red; } </style> no <head> 
+         const headElement = document.head;
+         const styleElement = document.createElement("style");
+         styleElement.textContent = '.listItem {color: red;}';
+         headElement.appendChild(styleElement);
+
+         // item d) Via Javascript adicione a classe ‘listItem’ nos elementos <li>
+         const liElements = document.querySelectorAll("li");
+
+         liElements.forEach( (item) => {
+            item.classList.add("listItem");
+         });
+         
+         console.log("[debug]: liElements: ",liElements)
+
+
+      </script>
+	</body>
+</html>

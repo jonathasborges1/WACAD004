@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <meta name="description" content="Aula 2 - Atividade 5">
+   <meta name="keywords" content="HTML5, CSS3, JS, DOM">
+   <meta name="author" content="Jonathas Borges Cavalcante">
+
+   <title>T5</title>
+
+   <style>
+      .btn, .remove-btn {
+         text-transform: capitalize;
+         width:100px;
+         height:10px;
+         border: 1px solid black;
+         padding:5px;
+         border-radius: 5px;
+         cursor: pointer;
+         }
+      img { transition: display .2ms ease; cursor: pointer; }
+      .js-hidden { display: none; }
+      .js-show { display: block; }
+   </style>
+
+</head>
+<body>
+   <span class='btn'>Visualizar Imagem</span>
+   <img src="notebook.jpg" alt="exemplo de imagem">
+   <script>
+      /* 
+         a) Adicione um eventos de ‘click’ ao botão ‘.btn’, quando for clicado, uma imagem de 
+            sua escolha seja exibida abaixo do botão. A imagem pode estar presente no
+            HTML (body) antes que o botão seja clicado, mas deve ser ocultada (veja o CSS 
+            display).
+      */
+
+         // seleciona o botão
+         const botao = document.querySelector('.btn');
+
+         // seleciona a imagem que será exibida
+         const imagem = document.querySelector('img');
+
+         // oculta a imagem
+         imagem.style.display = 'none';
+
+         // adiciona um evento de clique ao botão
+         botao.addEventListener('click', function() {
+            // exibe a imagem quando o botão é clicado
+            imagem.style.display = 'block';
+         });
+      //
+// ------------------------------------------------------------------------------------------------------------ //
+      /* 
+         b) Adicione um eventos à imagem. Quando a imagem for clicada, oculte a imagem novamente
+      */
+         // seleciona a imagem
+         const imagemB = document.querySelector('img');
+
+         // adiciona um evento de clique à imagem
+         imagemB.addEventListener('click', function() {
+            // oculta a imagem quando a imagem é clicada
+            imagemB.style.display = 'none';
+         });
+      //
+// ------------------------------------------------------------------------------------------------------------ //
+      /* 
+         c) Crie um segundo botão (também criado a partir de um elemento span) 
+         com a classe= ‘remove-btn’ (Veja CSS). Quando este botão for clicado, o 
+         event listener deverá remover completamente a imagem da página. Não 
+         se esqueça de remover o evento anexado do Selector ‘remove-btn’.
+      */
+
+         // cria o botão de remover
+         const dropButton = document.createElement('span');
+         dropButton.classList.add('remove-btn');
+         dropButton.textContent = 'Remover Imagem';
+
+         // adiciona o botão de remover ao corpo da página
+         document.body.appendChild(dropButton);
+
+         // adiciona um evento de clique ao botão de remover
+         dropButton.addEventListener('click', function() {
+            // remove a imagem da página
+            const imagemC = document.querySelector('img');
+            imagemC.parentNode.removeChild(imagemC);
+
+            // remove o evento de clique do botão de remover
+            dropButton.removeEventListener('click');
+         });
+      //
+// ------------------------------------------------------------------------------------------------------------ //
+   </script>
+</body>
+</html>

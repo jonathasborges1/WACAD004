@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <meta name="description" content="Aula 2 - Atividade 3">
+   <meta name="keywords" content="HTML5, CSS3, JS, DOM">
+   <meta name="author" content="Jonathas Borges Cavalcante">
+
+   <title>T3</title>
+   <style>
+      .body-data {
+       border:#3CB371 2px solid;
+       background-color: #03a9f400;
+       text-align: left;
+       padding-left: 20px;
+       padding-bottom: 20px;
+       height: auto;
+       width: auto;
+      }
+      .resultText {
+       margin: 0 0 3px 0;
+       padding: 0px;
+       display: block;
+       font-weight: bold;
+      }
+      .heading {
+       font-weight: bold;
+       border-bottom: 2px solid #708090;
+       font-size: 15px;
+       width: 98%;
+      }
+      </style>
+</head>
+<body>
+   
+   <div class = "body-data" >
+      <div class = "heading" >
+         <h2> Evendo com 'blur' </h2>
+         <span>Click no input para disparar o Evento </span>
+      </div>
+      <div class = "resultText" >
+         </br>
+         <p> Campo de Validação </p>
+         <textarea id="myText" rows="4" cols="50"></textarea>
+         <p id = "result" ></p>
+      </div>
+   </div>
+
+   <script>
+      /* 
+         a) Adicione um evento ‘blur’ no campo <textarea> que faça uma verificação que 
+            aceite somente texto. Se o usuário inserir números, seja sozinho ou 
+            junto com a string mude o background para vermelho, caso tenha somente texto,  mude para verde
+      */
+
+         const myText = document.getElementById('myText');
+
+         myText.addEventListener('blur', () => {
+            const textValue = myText.value;
+            const regex = /^[A-Za-z]+$/;
+            const isValid = regex.test(textValue);
+            
+            myText.style.backgroundColor = isValid ? "green" : "red";
+
+         });
+      //
+// ------------------------------------------------------------------------------------------------------------ //
+
+      /* 
+         b) Escreva no id= ‘result’ os seguintes feedbacks, exemplo: 
+               [abc123] -> “Input contém números”
+               [abcd] -> “Input não contém número”
+               [] -> “Input está vazio”  
+      */
+
+         const textarea = document.getElementById('myText');
+         const result = document.getElementById('result');
+
+         textarea.addEventListener('blur', function() {
+            const value = textarea.value.trim();
+         
+            if (value === '') {
+               result.textContent = 'Input está vazio';
+               textarea.style.backgroundColor = 'gray';
+            } else if (/\d/.test(value)) {
+               result.textContent = 'Input contém números';
+               textarea.style.backgroundColor = 'red';
+            } else {
+               result.textContent = 'Input não contém número';
+               textarea.style.backgroundColor = 'green';
+            }  
+         });
+      //
+// ------------------------------------------------------------------------------------------------------------ //
+      
+      /* 
+         c) Adicione um evento que não permita que o usuário realizar a ação CTRL+V na <textarea>.
+      */
+
+         const textAreaBlock = document.getElementById("myText");
+            textAreaBlock.addEventListener("paste", (e) => {
+               e.preventDefault();
+         });
+      //
+// ------------------------------------------------------------------------------------------------------------ //
+   </script>
+</body>
+</html>

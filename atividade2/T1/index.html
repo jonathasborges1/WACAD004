@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <meta name="description" content="Aula 2 - Atividade 1">
+   <meta name="keywords" content="HTML5, CSS3, JS, DOM">
+   <meta name="author" content="Jonathas Borges Cavalcante">
+
+   <title>T1</title>
+   <style>
+      .container {
+         display: grid;
+         grid-template-columns: 49% 49%;
+         grid-template-rows: 10em 10em;
+         gap: 1%;
+         background-color: AliceBlue;
+         margin: 2em;
+         padding: 2em;
+      }
+
+      .cell {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background-color: blue;
+         font-size: 3em;
+      }
+   </style>
+</head>
+<body>
+   <div class="container">
+      <div id="divA" class="cell">A</div>
+      <div id="divB" class="cell">B</div>
+      <div id="divC" class="cell">C</div>
+      <div id="divD" class="cell">D</div>
+   </div>
+
+   <script>
+
+      /*
+         a) Implemente um evento ‘click’ que alterne a div 'D' entre as
+            cores de fundo (192,192,192) para (218,165,32)
+      */ 
+      
+         // Obter a div D
+         const divD = document.getElementById('divD');
+
+         // Adicionar o evento de clique à div D
+         divD.addEventListener('click', () => {
+         const currentColor = divD.style.backgroundColor; // Verificar a cor atual de fundo da div D
+         
+         // Se a cor atual for (192,192,192), alterne para (218,165,32); caso contrário, alterne para (192,192,192)
+         divD.style.backgroundColor = (currentColor === 'rgb(192, 192, 192)') ? 'rgb(218, 165, 32)' : 'rgb(192, 192, 192)';
+         });
+      //
+// ------------------------------------------------------------------------------------------------------------ //
+      /*
+             Implemente um evento 'mouseover'. A cada movimento do mouse na div 'C', 
+         b)  sua cor de fundo muda de "Blue " para "#00FF00", "#FF4500", "(255,215,0)",  
+             "(211,211,211)" e de volta para ""Blue ".
+      */
+         // Obter a div C
+         const divC = document.getElementById('divC');
+
+         // Definir as cores a serem alternadas
+         const cores = ['Blue', '#00FF00', '#FF4500', 'rgb(255, 215, 0)', 'rgb(211, 211, 211)'];
+         
+         // Encontrar a próxima cor na lista de cores
+         let nextColorIndex = 0;
+
+         // Adicionar o evento de mouseover à div C
+         divC.addEventListener('mouseover', () => {
+            divC.style.backgroundColor = cores[nextColorIndex];
+            nextColorIndex = (nextColorIndex + 1) % cores.length;
+         });
+// ------------------------------------------------------------------------------------------------------------ //
+      /*
+             Implemente dois manipuladores de eventos para mouse na div 'A'. 
+         c)  Quando o ponteiro do mouse entra na área, sua cor de fundo muda para 
+             "vermelho"; ao sair da área, sua cor de fundo muda para "verde"
+      */
+      
+      // Obter a div A
+      const divA = document.getElementById('divA');
+      
+      // Adicionar o evento de mouseenter à div A
+      divA.addEventListener('mouseenter', () => {
+         divA.style.backgroundColor = 'red';
+      });
+
+      // Adicionar o evento de mouseleave à div A
+      divA.addEventListener('mouseleave', () => {
+         divA.style.backgroundColor = 'green';
+      });
+
+   </script>
+
+</body>
+</html>

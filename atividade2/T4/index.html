@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="description" content="Aula 2 - Atividade 4" />
+		<meta name="keywords" content="HTML5, CSS3, JS, DOM" />
+		<meta name="author" content="Jonathas Borges Cavalcante" />
+      <link href="https://fonts.googleapis.com/css?family=BioRhyme:300|Monoton" rel="stylesheet">
+		<title>T4</title>
+		<style>
+			/* CSS Questão 4 */
+			html,
+			body {
+				margin: auto 0;
+				font-size: 18px;
+				font-family: "BioRhyme", serif;
+			}
+			body {
+				background-size: cover;
+				display: grid;
+				justify-items: center;
+			}
+			.header {
+				display: inline-flex;
+			}
+			h1 {
+				padding: 0 1.5rem;
+				font-family: "Arial", cursive;
+				letter-spacing: 3px;
+				font-weight: 300;
+				font-size: 2.8em;
+			}
+			#first {
+				display: flex;
+				align-self: baseline;
+			}
+			.list {
+				background: #ffdab9;
+				padding: 2rem;
+				width: 30vw;
+				display: flex;
+
+				flex-direction: column;
+				align-items: flex-end;
+			}
+			.list--header {
+				align-self: center;
+				padding-top: 1rem;
+			}
+			#userinput,
+			#enter {
+				padding: 0.5rem;
+				font-size: 0.8em;
+				border-radius: 5%;
+			}
+			ul {
+				text-align: right;
+				list-style-type: none;
+			}
+			li {
+				padding-top: 0.5rem;
+				cursor: pointer;
+			}
+			button {
+				margin-left: 1rem;
+				margin-bottom: 0.5rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				padding: 0.5rem 0.3rem;
+				cursor: pointer;
+				border-radius: 30px;
+			}
+			.done {
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>Lista da Festa</h1>
+			</div>
+			<div class="list">
+				<div class="list--header">
+					<input id="userinput" type="text" placeholder="..." />
+					<button id="enter">Enter!</button>
+				</div>
+				<ul id="item--List">
+					<li>
+						<span>Chocolate</span>
+						<button class="delete--button">Delete</button>
+					</li>
+					<li>
+						<span>Balões</span>
+						<button class="delete--button">Delete</button>
+					</li>
+					<li>
+						<span>Cupcake</span>
+						<button class="delete--button">Delete</button>
+					</li>
+					<li>
+						<span>Bolo de Aniversário</span>
+						<button class="delete--button">Delete</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+      <script>
+         /* a) Adicione um evento de click (DELETE) para os botões <button class= ‘delete--button'> */
+               
+               // seleciona todos os botões com a classe 'delete-button'
+               const deleteButtons = document.querySelectorAll('.delete-button');
+
+               // adiciona um event listener para cada botão de delete
+               deleteButtons.forEach(function(botao) {
+                  botao.addEventListener('click', function() {
+                     // código a ser executado quando um botão de delete é clicado
+                  });
+               });
+            //
+// ------------------------------------------------------------------------------------------------------------ //
+
+      </script>
+	</body>
+</html>

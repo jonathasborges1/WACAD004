@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <meta name="description" content="Aula 1 - Atividade 2">
+      <meta name="keywords" content="HTML, CSS, JS, DOM">
+      <meta name="author" content="Jonathas Borges Cavalcante">
+
+      <title>T2</title>
+
+      <style>
+         p{
+            width: 350px;
+            padding: 20px;
+            background: papayawhip;
+         }
+      </style>
+   </head>
+   <body>
+
+      <p>Mary Kenneth Keller foi uma freira e também a primeira mulher a 
+         conquistar um doutorado em Ciências da Computação.
+      </p>
+      <p>A britânica Ada Lovelace foi a primeira programadora da história, 
+         criando o primeiro algoritmo capaz de ser processado por
+         uma máquina.
+      </p>
+      <p>
+         Grace Hopperé que foi por causa dela que começamos a chamar as 
+         falhas de “bug”.
+      </p>
+      <p>A Carol Shaw foi a primeira mulher a desbravar o universo dos 
+         games, na década de 70.
+      </p>
+      
+      <script>
+         /* Pega apenas o primeiro p */
+         const pElementByQuerySelector = document.querySelector("p");
+
+         /* Pega todos paragrafos p */
+         const pElementByTagName = document.getElementsByTagName("p");
+         
+         console.log("pElementByQuerySelector: ",pElementByQuerySelector);
+         console.log("pElementByTagName: ",pElementByTagName);
+
+         // Logica para acessar o ultimo elemento da lista
+         const getLastChildIndex = pElementByTagName.length - 1;
+
+         // O bloco abaixo altera a cor do penultimo paragrafo
+         Array.from(pElementByTagName).forEach( (element,index) => {
+            console.log("element: ",element);
+            if(index === getLastChildIndex - 1 ){ // Pega o penultimo elemento
+               element.style.setProperty("background-color", "blue" );
+            }
+         });
+
+
+         // O bloco de codigo abaixo cria Array de IDS [‘one’,‘two’, ‘tree’, ‘four’]
+         const arrayListIds = ["one", "two", "tree", "four"];
+         Array.from(pElementByTagName).forEach( (element,index) => {
+            element.setAttribute("id",arrayListIds[index]);
+            element.setAttribute("class","paragraph");
+            element.style.setProperty("font-family", "Monospace");
+            element.style.setProperty("font-size", "14pt");
+            element.style.setProperty("border", "8px solid pink");
+         });
+      </script>
+   </body>
+</html>

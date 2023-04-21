@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="description" content="Aula 1 - Atividade 4" />
+		<meta name="keywords" content="HTML, CSS, JS, DOM" />
+		<meta name="author" content="Jonathas Borges Cavalcante" />
+
+		<title>T4</title>
+	</head>
+	<body>
+		<div class="estufa">
+			<ul class="frutas">
+				<li>Abacate</li>
+				<li>Banana</li>
+				<li>Caqui</li>
+				<li>Laranja</li>
+				<li>Melão</li>
+			</ul>
+			<ul class="verduras">
+				<li>Aipo</li>
+				<li>Alface</li>
+				<li>Brócolis</li>
+				<li>Couve</li>
+				<li>Espinafre</li>
+			</ul>
+			<ul class="Legumes">
+				<li>Abóbora</li>
+				<li>Batata</li>
+				<li>Cenoura</li>
+				<li>Mandioca</li>
+			</ul>
+			<ul class="flores">
+				<li>Acácia</li>
+				<li>Flor de Lótus</li>
+				<li>Rosa Branca</li>
+			</ul>
+		</div>
+
+      <script>
+         // a) Selecione o elemento <div class=‘estufa’>com ‘querySeletor()’
+         const estufa = document.querySelector(".estufa");
+         console.log("[debug]: estufa: ",estufa);
+
+         // b) Selecione o elemento <ul class=‘verduras’>a partir de ‘<div class=‘estufa’>
+         const verduras = estufa.children[1]
+         console.log("[debug]: verduras: ",verduras);
+         
+         // c) Selecione NodeList  de<div  class=‘verduras’>com ‘querySelectorAll’,  iniciando  a partir de ‘.verduras’
+         const verduraChilds = verduras.querySelectorAll("li");
+         console.log("[debug]: verdurasChilds: ",verduraChilds);
+
+         // d) Selecione todas as frutas com propriedade ‘children’
+         const frutas = estufa.children[0];
+         console.log("[debug]: frutas: ",frutas);
+
+         // e) Selecione o conteúdo frutas ‘Caqui’
+         const caqui = frutas.children[2].textContent
+         console.log("[debug]: caqui: ",caqui);
+
+         // f) Selecione o elemento <ul class=‘flores’> a partir de ‘Acácia’
+         const acacia = document.getElementsByClassName("flores")[0].children[0];
+         const ulFlores = acacia.parentNode;
+         console.log("[debug]: ulFlores: ",ulFlores);
+
+         // g) Selecione o elemento <di class= ‘estufa’> apartir de ‘Rosa Branca’
+         const rosaBranca = document.getElementsByClassName("flores")[0].children[2];
+         console.log("[debug]: rosaBranca: ",rosaBranca);
+
+         const estufaClass = rosaBranca.parentNode.parentNode;
+         console.log("[debug]: estufaClass: ",estufaClass);
+
+         // h) Selecione o conteúdo ‘Cenoura’a partirdo elemento <li>Batata</li>
+         const batata =  document.getElementsByClassName("Legumes")[0].children[1];
+         console.log("[debug]: batata: ",batata.textContent);
+
+         const cenoura = batata.nextSibling.nextSibling;
+         console.log("[debug]: cenoura: ",cenoura.textContent);
+
+         // j) Selecione o conteúdo ‘Abóbora’ a partir do elemento <li>Batata</li>
+         const abobora =  batata.previousSibling.previousSibling;
+         console.log("[debug]: abobora: ",abobora.textContent);
+
+         // i) Selecione o conteúdo ‘Mandioca’apartir do elemento <li>Batata</li>
+         const mandioca = batata.nextSibling.nextSibling.nextSibling.nextSibling;
+         console.log("[debug]: mandioca: ",mandioca.textContent);
+
+
+
+      </script>
+
+	</body>
+</html>
